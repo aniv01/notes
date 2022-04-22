@@ -1,1 +1,1 @@
-## What is Otel? :yellow_heart:
+## What is Otel? OpenTracing + OpenCensus = :yellow_heart:
