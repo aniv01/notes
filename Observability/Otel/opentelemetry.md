@@ -44,4 +44,11 @@
 #### Tracing headers to HTTP spec (WIP)
 
 - Work being done on W3C side to standardize http headers for tracing (Tracing headers)
-- 
+  - Trace Context (this header contains 2 fields)
+    - traceparent
+      - traceid
+      - spanid
+      - sampling flag
+  - Baggage
+    - baggage
+      - These are arbitrary kv pairs.
