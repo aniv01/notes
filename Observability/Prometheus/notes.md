@@ -32,3 +32,30 @@ process_cpu_seconds_total 5.23
 worker_jobs_total{status="processed"} 1000
 worker_jobs_total{status="falied"} 200
 ```
+
+## Metric types in prometheus
+---
+- A `counter` always increases and it is useful for storing things like number of HTTP reqs or the amount of cpu time used.
+```
+http_requests_total 1000000
+cpu_seconds_total 3000
+```
+- `Gauges` are snapshot of a changing value, something like the number of HTTP requests being processed. They can go up or down, unlike counter they always increase.
+```
+http_requests_active 2000
+memory_allocated_bytes 4.832e+09
+```
+- `Summaries` are for recording average size of something, that could be time taken for a calculation or size of a file that was processed.
+```
+calculation_seconds_count 3
+calculation_seconds_sum 15
+```
+In the example above 3 calculations took 15 mins on an average of 5s for each calculation.
+- `Histograms` records data in buckets.
+```
+calculation_seconds_bucket{le="1"} 0
+calculation_seconds_bucket{le="5"} 3
+calculation_seconds_bucket{le="10"} 6
+calculation_seconds_bucket{le="20"} 9
+calculation_seconds_bucket{le="60"} 10
+```
